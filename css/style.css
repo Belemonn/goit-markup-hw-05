@@ -526,23 +526,23 @@ a {
   border-radius: 4px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
   color: #fff;
-  outline: transparent;
-}
-
-.footer-input::placeholder {
   font-weight: 400;
   font-size: 12px;
   line-height: 2;
   letter-spacing: 0.04em;
-  color: #fff;
   padding-left: 16px;
-  text-align: left;
+  outline: transparent;
+}
+
+.footer-input::placeholder {
+  color: #fff;
 }
 
 .sub-btn {
   border-radius: 4px;
   padding: 8px 24px;
   font-weight: 500;
+  min-width: 165px;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.04em;
@@ -551,6 +551,8 @@ a {
   color: #ffffff;
   display: flex;
   align-items: center;
+  justify-content: center;
+  cursor: pointer;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -581,7 +583,7 @@ a {
 .backdrop {
   width: 100%;
   height: 100%;
-  background-color: rgba(17, 17, 17, 0.396);
+  background-color: rgba(46, 47, 66, 0.4);
   position: fixed;
   top: 0;
   left: 0;
@@ -591,7 +593,8 @@ a {
   justify-content: center;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-open {
@@ -610,20 +613,28 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 24px;
+  padding: 72px 24px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close-btn {
   position: absolute;
+  padding: 0;
   top: 24px;
   right: 24px;
-  border-radius: 100%;
+  border-radius: 50%;
   width: 24px;
   height: 24px;
   border: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: #e7e9fc;
   margin-bottom: 24px;
-  transition: background-color fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
 }
 
 .modal-close-btn:hover,
@@ -633,6 +644,7 @@ a {
 }
 
 .modal-close-icon {
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-title {
@@ -643,7 +655,6 @@ a {
   text-align: center;
   color: #2e2f42;
   margin-bottom: 16px;
-  margin-top: 48px;
   max-width: 360px;
 }
 
@@ -651,16 +662,16 @@ a {
 }
 
 .modal-field {
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 .modal-label {
   font-weight: 400;
   font-size: 12px;
-  line-height: 1.16667;
+  line-height: 1.17;
   letter-spacing: 0.04em;
   color: #8e8f99;
-  display: inline-block;
+  display: block;
   margin-bottom: 4px;
 }
 
@@ -701,6 +712,10 @@ a {
   width: 100%;
   height: 120px;
   padding: 8px 16px;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: rgba(46, 47, 66, 0.4);
   background-color: transparent;
   outline: transparent;
   resize: none;
@@ -712,14 +727,13 @@ a {
 }
 
 .modal-textarea::placeholder {
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.16667;
-  letter-spacing: 0.04em;
-  color: rgba(46, 47, 66, 0.4);
 }
 
 .modal-check {
+}
+
+.modal-privacy {
+  margin-bottom: 24px;
 }
 
 .modal-check-text {
@@ -730,7 +744,7 @@ a {
   color: #8e8f99;
 }
 
-span {
+.modal-checkbox {
   width: 16px;
   height: 16px;
   border-radius: 2px;
@@ -740,11 +754,13 @@ span {
   justify-content: center;
   fill: transparent;
   margin-right: 8px;
-  transition: fill background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-check:checked + .modal-check-text span {
-  background-color: #4d5ae5;
+.modal-check:checked + .modal-check-text .modal-checkbox {
+  background-color: #404bbf;
   border: none;
   fill: #f4f4fd;
 }
@@ -760,7 +776,7 @@ span {
 }
 
 .modal-btn {
-  width: 169px;
+  min-width: 169px;
   height: 56px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
   background-color: #4d5ae5;
@@ -776,6 +792,7 @@ span {
   letter-spacing: 0.04em;
   text-align: center;
   border-radius: 4px;
+  cursor: pointer;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
