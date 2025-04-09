@@ -750,9 +750,11 @@ a {
   color: #8e8f99;
 }
 
-.modal-checkbox {
+.modal-user-checkbox .modal-checkbox {
   width: 16px;
   height: 16px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  fill: transparent;
   border-radius: 2px;
   margin-right: 8px;
   display: inline-flex;
@@ -765,8 +767,8 @@ a {
 
 .modal-check:checked + .modal-check-text .modal-checkbox {
   background-color: #404bbf;
-  border: none;
   fill: #f4f4fd;
+  border: none;
 }
 
 .privacy {
